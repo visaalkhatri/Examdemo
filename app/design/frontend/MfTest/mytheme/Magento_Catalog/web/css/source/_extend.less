@@ -1,0 +1,52 @@
+// /**
+//  * Copyright © Test MF. All rights reserved.
+//  * See COPYING.txt for license details.
+//    PDP Changes
+//  */
+ & when (@media-common = true) {
+	.cv_gallery {
+		display: block;
+	}
+	.product_gallery_info {
+		width: 100%;
+		display: block;
+	}
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .catalog-product-view {
+       .column.main {
+            display: flex;
+            flex-flow: wrap;
+       }
+      
+      .product {
+           &-info-main {
+              width: 40%;
+              position: sticky;
+              z-index: 99;
+              background: @color-white;
+              top: 0;
+          }
+          &-gallery {
+						display: grid;
+						grid-gap: 15px;
+						grid-template-columns: 2fr 2fr;
+						&_slide {
+							grid-column: auto / span 1;
+							&:nth-child(3n + 1){
+								grid-column: auto / span 2 !important;
+								text-align: center;
+						}
+					}
+				}
+				.media {
+		        width: 50%;
+		        order: -1;
+		        .viewport.desktop {
+		            display: flex;
+		            flex-flow: wrap;
+		        }
+		    }
+      }
+  }
+}
